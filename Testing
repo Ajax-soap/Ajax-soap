@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Trip Planner</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        main {
+            padding: 2rem;
+        }
+        form {
+            background-color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: #3498db;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            form {
+                padding: 1rem;
+            }
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            .form-group button {
+                width: 100%;
+                padding: 0.75rem;
+            }
+        }
+        /* Travel, Map, and Road Trip Timeline Theme */
+        .timeline {
+            list-style: none;
+            padding: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            background: #3498db;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            z-index: 400;
+        }
+        .timeline-item {
+            padding: 2rem 0;
+            position: relative;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 50%;
+            padding-left: 2rem;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+            padding-right: 2rem;
+        }
+        .timeline-item .timeline-content {
+            background: #ecf0f1;
+            padding: 1rem;
+            border-radius: 8px;
+            position: relative;
+            width: 45%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-item .timeline-content::before {
+            content: '';
+            background: #3498db;
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: -15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            z-index: 401;
+        }
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: auto;
+            right: -15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Road Trip Planner</h1>
+    </header>
+    <main>
+        <form id="tripForm">
+            <div class="form-group">
+                <label for="startingPoint">Starting Point</label>
+                <input type="text" id="startingPoint" name="startingPoint" required>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" name="destination" required>
+            </div>
+            <div class="form-group">
+                <label for="interests">Interests/Goals</label>
+                <textarea id="interests" name="interests" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="amenities">Amenities Needed</label>
+                <textarea id="amenities" name="amenities" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="budget">Budget ($)</label>
+                <input type="number" id="budget" name="budget" required>
+            </div>
+            <div class="form-group">
+                <label for="gasEfficiency">Vehicle Gas Efficiency (mpg)</label>
+                <input type="number" id="gasEfficiency" name="gasEfficiency" required>
+            </div>
+            <div class="form-group">
+                <label for="gasStations">Preferred Gas Stations</label>
+                <input type="text" id="gasStations" name="gasStations">
+            </div>
+            <div class="form-group">
+                <button type="submit">Plan My Trip</button>
+            </div>
+        </form>
+
+        <h2>Road Trip Timeline</h2>
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1920s - The Roaring Twenties</h3>
+                    <p>A group of friends embark on a road trip across the United States, experiencing the Jazz Age and the excitement of a rapidly changing world.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1960s - The Hippie Movement</h3>
+                    <p>Another adventure takes the friends on a journey through the counterculture revolution, exploring iconic destinations like San Francisco and Woodstock.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1980s - The Age of Glam</h3>
+                    <p>The friends hit the road again in the flashy 80s, visiting cities known for their vibrant nightlife and neon lights.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2020s - Modern Road Trips</h3>
+                    <p>In the present day, the friends continue their tradition of road trips, now with modern technology and a focus on sustainable travel.</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Road Trip Planner. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('tripForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Trip planned successfully!');
+            // Here you would add the code to handle the form submission,
+            // e.g., sending data to a server or processing it with JavaScript.
+        });
+    </script>
+</body>
+</html>
