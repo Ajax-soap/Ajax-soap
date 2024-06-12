@@ -67,7 +67,7 @@
             color: #ecf0f1;
             text-align: center;
             padding: 1rem;
-            position: absolute;
+            position: relative;
             bottom: 0;
             width: 100%;
         }
@@ -139,6 +139,46 @@
             left: auto;
             right: -15px;
         }
+        /* Calendar Styles */
+        .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calendar-month {
+            flex: 1 1 calc(33.333% - 1rem);
+            margin: 0.5rem;
+            background-color: #bdc3c7;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .calendar-month h3 {
+            margin: 0;
+            padding: 0.5rem;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+        }
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 0.5rem;
+        }
+        .calendar-day {
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid #ecf0f1;
+            cursor: pointer;
+        }
+        .calendar-day:hover {
+            background-color: #95a5a6;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -146,6 +186,7 @@
         <h1>Road Trip Planner</h1>
     </header>
     <main>
+        <!-- Form Section -->
         <form id="tripForm">
             <div class="form-group">
                 <label for="startingPoint">Starting Point</label>
@@ -180,6 +221,7 @@
             </div>
         </form>
 
+        <!-- Timeline Section -->
         <h2>Road Trip Timeline</h2>
         <ul class="timeline">
             <li class="timeline-item">
@@ -207,17 +249,13 @@
                 </div>
             </li>
         </ul>
-    </main>
-    <footer>
-        <p>&copy; 2024 Road Trip Planner. All rights reserved.</p>
-    </footer>
-    <script>
-        document.getElementById('tripForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Trip planned successfully!');
-            // Here you would add the code to handle the form submission,
-            // e.g., sending data to a server or processing it with JavaScript.
-        });
-    </script>
-</body>
-</html>
+
+        <!-- Calendar Section -->
+        <h2>Annual Calendar</h2>
+        <div class="calendar">
+            <!-- Example Month -->
+            <div class="calendar-month">
+                <h3>January</h3>
+                <div class="calendar-days">
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day
